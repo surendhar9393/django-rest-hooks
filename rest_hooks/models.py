@@ -73,7 +73,7 @@ class AbstractHook(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    user = models.ForeignKey(AUTH_USER_MODEL, related_name='%(class)ss', on_delete=models.CASCADE)
+    user = models.ForeignKey(AUTH_USER_MODEL, related_name='%(class)ss', on_delete=models.CASCADE, null=True, blank=True)
     event = models.CharField('Event', max_length=64, db_index=True)
     target = models.URLField('Target URL', max_length=255)
 
